@@ -1,0 +1,89 @@
+{
+  "expo": {
+    "name": "VoicePay",
+    "slug": "voicepay",
+    "scheme": "voicepay",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0b1220",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.voicepay.demo",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "VoicePay listens to your voice commands like \"Send 500 to Ramesh\".",
+        "LSApplicationQueriesSchemes": [
+          "upi",
+          "tez",
+          "phonepe",
+          "paytmmp"
+        ],
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true
+        },
+        "NSContactsUsageDescription": "VoicePay reads your contacts only when you choose to pick a person to pay.",
+        "NSCameraUsageDescription": "VoicePay uses the camera only to read payment QR codes."
+      }
+    },
+    "android": {
+      "package": "com.voicepay.demo",
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.VIBRATE",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.CAMERA",
+        "android.permission.READ_CONTACTS",
+        "android.permission.USE_BIOMETRIC",
+        "android.permission.USE_FINGERPRINT"
+      ],
+      "adaptiveIcon": {
+        "backgroundColor": "#0b1220",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "plugins": [
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "VoicePay listens to your voice commands like \"Send 500 to Ramesh\"."
+        }
+      ],
+      [
+        "expo-contacts",
+        {
+          "contactsPermission": "VoicePay reads your contacts only when you choose to pick a person to pay."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "VoicePay uses the camera only to read payment QR codes.",
+          "recordAudioAndroid": false
+        }
+      ],
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "VoicePay uses Face ID to unlock the app."
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true
+          }
+        }
+      ],
+      "expo-font"
+    ],
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "description": "Voice-first payments for everyone, including blind and low-vision users."
+  }
+}

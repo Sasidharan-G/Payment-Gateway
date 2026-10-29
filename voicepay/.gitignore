@@ -1,0 +1,17 @@
+node_modules/
+server/data/
+server/.env
+app/.expo/
+app/dist/
+*.log
+
+# secrets / local
+.env
+*.env.local
+app/eas.json
+eas.json
+app/android/
+app/ios/
+*.apk
+apk/
+.claude/

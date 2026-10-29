@@ -1,0 +1,22 @@
+# Render Blueprint: one click deploy of the VoicePay API (https://render.com -> New -> Blueprint).
+services:
+  - type: web
+    name: voicepay-api
+    runtime: docker
+    dockerContext: ./server
+    dockerfilePath: ./server/Dockerfile
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false          # paste in the Render dashboard (never commit it)
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-120b
+      - key: GROQ_STT_MODEL
+        value: whisper-large-v3-turbo
+      - key: API_KEY
+        generateValue: true  # copy this into EXPO_PUBLIC_API_KEY before building the APK
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false

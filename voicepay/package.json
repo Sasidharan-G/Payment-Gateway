@@ -1,0 +1,10 @@
+{
+  "name": "voicepay",
+  "private": true,
+  "scripts": {
+    "setup": "npm --prefix server install && npm --prefix app install",
+    "server": "npm --prefix server start",
+    "app": "npm --prefix app start",
+    "test": "npm --prefix server test && npm --prefix server run typecheck && npm --prefix app run typecheck"
+  }
+}
